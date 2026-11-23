@@ -69,3 +69,11 @@ Run these steps in order from a terminal.
 
 - `npm run check`: checks your `.env` and that you can reach the Toolshop API.
 - `npm test`: runs the Playwright tests in `tests/`.
+
+## Week 2 – Day 6: TypeScript Basics and Profile Validation program
+
+### TypeScript Basics
+Contains exercises covering TypeScript fundamentals tuples,functions, objects,aliases, unions and optional chaining.
+
+### Profile Validator
+Contains the profile validation functionality implemented in `profile-validator.ts`. This program is creating a user profile class aliase which 3 user profile objects are created from that class. The objects have id, names and setting attributes which is optional and allows users to get notifications when the notification attribute in the settings object is enabled.
