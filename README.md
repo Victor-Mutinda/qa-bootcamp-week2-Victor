@@ -77,3 +77,9 @@ Contains exercises covering TypeScript fundamentals tuples,functions, objects,al
 
 ### Profile Validator
 Contains the profile validation functionality implemented in `profile-validator.ts`. This program is creating a user profile class aliase which 3 user profile objects are created from that class. The objects have id, names and setting attributes which is optional and allows users to get notifications when the notification attribute in the settings object is enabled.
+
+Running the files
+
+npx tsx src/ts-basics/'name of file + . ts'
+
+npx tsx src/profile-validator.ts
