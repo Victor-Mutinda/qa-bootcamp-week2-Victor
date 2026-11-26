@@ -1,85 +1,68 @@
-# QA Bootcamp Week 2 Starter
+# QA Bootcamp – Week 2 Playwright Test Suite
 
-This is the starting point for Week 2 of the QA bootcamp. During the week you will use it to practise:
-
-- TypeScript
-- Playwright (UI testing)
-- Postman (API testing)
-- The Toolshop REST API
-
-There are no tests in this repo. You will write them during the week.
+This repository contains automated UI and API tests for the Toolshop application and REST API, developed during Week 2 of the QA Bootcamp.
 
 ## Prerequisites
 
-Install these before you start:
+- Node.js (LTS)
+- Git
+- VS Code (recommended)
 
-- [Node.js](https://nodejs.org/) (the current LTS version)
-- [Git](https://git-scm.com/)
-- [VS Code](https://code.visualstudio.com/)
+## Setup and Run
 
-## Setup
+Follow these three steps from your terminal:
 
-Run these steps in order from a terminal.
+**1. Install dependencies and Playwright Chromium**
 
-1. Clone the repo and open the folder:
+```bash
+npm install
+npx playwright install chromium
+```
 
-   ```bash
-   git clone <repo-url>
-   cd qa-bootcamp-week2-starter
-   ```
+**2. Configure environment variables**
 
-2. Install the dependencies:
+Copy `.env.example` to `.env`.
 
-   ```bash
-   npm install
-   ```
+PowerShell:
 
-3. Install the Chromium browser for Playwright:
+```powershell
+Copy-Item .env.example .env
+```
 
-   ```bash
-   npx playwright install chromium
-   ```
+**3. Run the test suite**
 
-4. Copy `.env.example` to `.env`:
+```bash
+npm test
+```
 
-   ```bash
-   cp .env.example .env
-   ```
+This runs all Playwright tests in the `tests/` directory.
 
-   `.env` already contains the Toolshop website URL (`TOOLSHOP_URL`) and the Toolshop API URL (`TOOLSHOP_API_URL`). Only change them if your trainer gives you different URLs.
+## Test Coverage
 
-5. Check that your setup works:
+| Test file | Description |
+|---|---|
+| `invalidCredentialsLogin.spec.ts` | Verifies login with invalid credentials |
+| `searchPliers.spec.ts` | Tests product search for Pliers |
+| `title.spec.ts` | Checks the Toolshop page title |
+| `searchProductPOM.spec.ts` | Tests product search using the Page Object Model |
+| `cartApiResponse.spec.ts` | Tests cart creation and adding a product |
+| `nonExistentCart.spec.ts` | Verifies the API returns 404 for a non-existent cart |
+| `getProducts.spec.ts` | Verifies the products API response |
 
-   ```bash
-   npm run check
-   ```
+## Project Structure
 
-   This sends a GET request to the Toolshop API's `/products` endpoint (no login needed). If everything is set up correctly, it prints your Node version, the HTTP status (200), the number of products, and a last line that says `PASS`.
+- `tests/` – Playwright UI and API test files.
+- `pages/` – Page Object Model classes and reusable page interactions.
+- `features/` – Gherkin feature files.
+- `scripts/` – Helper scripts.
+- `playwright.config.ts` – Playwright test configuration.
 
-> **Warning:** never commit `.env`. It is where your own settings and, later in the course, your secrets (keys, tokens, passwords) live. It is listed in `.gitignore` so Git ignores it. Do not remove it from there.
+## Available Commands
 
-## Folders
+```bash
+npm test
+npm run check
+npx playwright show-report
+```
 
-| Folder     | What it is for |
-|------------|----------------|
-| `tests/`   | Your Playwright tests. It is empty for now; you will add tests during the week. |
-| `scripts/` | Helper scripts. `check.ts` checks your setup and is run by `npm run check`. |
-
-## Scripts
-
-- `npm run check`: checks your `.env` and that you can reach the Toolshop API.
-- `npm test`: runs the Playwright tests in `tests/`.
-
-## Week 2 – Day 6: TypeScript Basics and Profile Validation program
-
-### TypeScript Basics
-Contains exercises covering TypeScript fundamentals tuples,functions, objects,aliases, unions and optional chaining.
-
-### Profile Validator
-Contains the profile validation functionality implemented in `profile-validator.ts`. This program is creating a user profile class aliase which 3 user profile objects are created from that class. The objects have id, names and setting attributes which is optional and allows users to get notifications when the notification attribute in the settings object is enabled.
-
-Running the files
-
-npx tsx src/ts-basics/'name of file + . ts'
-
-npx tsx src/profile-validator.ts
+**Note:** Keep your `.env` file private. Do not commit it to Git. The `.env.example` file provides the configuration template for new users.
