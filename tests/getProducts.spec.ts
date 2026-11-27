@@ -8,6 +8,7 @@ test("Get Request for products" , async({request}) => {
     expect(response.status()).toBe(200);
 // Reading the response body
     const responseBody = await response.json();
+//    console.log(responseBody); print out that reponsebody
 // Expectation
     expect(responseBody.data[0]).toHaveProperty('name');
 

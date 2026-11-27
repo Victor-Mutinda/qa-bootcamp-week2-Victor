@@ -3,9 +3,10 @@ import "dotenv/config";
 
 export default defineConfig({
   testDir: "./tests",
-  reporter: "list",
+  reporter: "html",
   use: {
     baseURL: process.env.TOOLSHOP_URL ?? "https://practicesoftwaretesting.com",
+    trace: "on"
   },
   projects: [
     {
